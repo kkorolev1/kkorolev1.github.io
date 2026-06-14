@@ -1,0 +1,212 @@
+:root {
+  --paper: #f7f5ef;
+  --ink: #161616;
+  --muted: #5d625e;
+  --rule: #d8d2c6;
+  --teal: #286b67;
+  --crimson: #9b2f32;
+  --white: #fffdfa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(90deg, rgb(247 245 239 / 0.98), rgb(247 245 239 / 0.84));
+  color: var(--ink);
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: rgb(40 107 103 / 0.48);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--teal);
+}
+
+.page {
+  width: min(880px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 52px 0 34px;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 144px minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  padding-bottom: 30px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.portrait {
+  width: 144px;
+  height: 144px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  background: var(--white);
+  object-fit: cover;
+}
+
+.kicker {
+  margin: 0 0 6px;
+  color: var(--crimson);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: clamp(2.9rem, 8vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.lead {
+  max-width: 620px;
+  margin-bottom: 16px;
+  color: #303331;
+  font-size: 1.08rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 28px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.content {
+  max-width: 660px;
+  color: #303331;
+}
+
+.content p:last-child,
+.footer p {
+  margin-bottom: 0;
+}
+
+.compact-list,
+.contact-list,
+.publication-list {
+  margin: 0;
+  color: #303331;
+}
+
+.compact-list,
+.contact-list {
+  padding-left: 1.1em;
+}
+
+.compact-list li + li,
+.contact-list li + li,
+.publication-list li + li {
+  margin-top: 7px;
+}
+
+.publication-list {
+  padding-left: 1.25em;
+}
+
+.publication-list li {
+  padding-left: 6px;
+}
+
+.publication-title {
+  display: block;
+  font-weight: 700;
+}
+
+.publication-meta {
+  display: block;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.footer {
+  padding-top: 24px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 680px) {
+  body {
+    background:
+      linear-gradient(180deg, rgb(247 245 239 / 0.98), rgb(247 245 239 / 0.9)),
+      url("assets/scientific-header.png") center top / 760px auto no-repeat;
+  }
+
+  .page {
+    padding-top: 32px;
+  }
+
+  .profile {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .portrait {
+    width: 112px;
+    height: 112px;
+  }
+
+  .section {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+@media print {
+  body {
+    background: var(--paper);
+  }
+
+  .page {
+    width: 100%;
+    padding: 0;
+  }
+
+  .portrait {
+    width: 96px;
+    height: 96px;
+  }
+}
