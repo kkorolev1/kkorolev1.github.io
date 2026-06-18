@@ -171,8 +171,7 @@ h2 {
 @media (max-width: 680px) {
   body {
     background:
-      linear-gradient(180deg, rgb(247 245 239 / 0.98), rgb(247 245 239 / 0.9)),
-      url("assets/scientific-header.png") center top / 760px auto no-repeat;
+      linear-gradient(180deg, rgb(247 245 239 / 0.98), rgb(247 245 239 / 0.9));
   }
 
   .page {
