@@ -95,5 +95,19 @@
         <p>&copy; 2026 Kirill Korolev.</p>
       </footer>
     </main>
+  <script>
+      const root = document.documentElement;
+    
+      function updateParallax() {
+        const y = window.scrollY * -0.3;
+        root.style.setProperty("--parallax-y", `${y}px`);
+      }
+    
+      updateParallax();
+    
+      window.addEventListener("scroll", () => {
+        requestAnimationFrame(updateParallax);
+      });
+    </script>
   </body>
 </html>

@@ -18,12 +18,43 @@ html {
 
 body {
   margin: 0;
-  background:
-    linear-gradient(90deg, rgb(247 245 239 / 0.98), rgb(247 245 239 / 0.84));
   color: var(--ink);
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   font-size: 17px;
   line-height: 1.55;
+  background: #111;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -18vh 0;
+  z-index: -2;
+
+  background-image: url("assets/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.08);
+  will-change: transform;
+}
+
+/* Light overlay for readability */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgb(247 245 239 / 0.90),
+      rgb(247 245 239 / 0.68)
+    ),
+    rgb(0 0 0 / 0.10);
 }
 
 a {
@@ -39,8 +70,17 @@ a:hover {
 
 .page {
   width: min(880px, calc(100% - 36px));
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 52px 0 34px;
+  padding: 52px 42px 34px;
+
+  background: rgb(247 245 239 / 0.86);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 24px 80px rgb(0 0 0 / 0.22),
+    0 0 0 1px rgb(255 255 255 / 0.38);
 }
 
 .profile {
@@ -170,12 +210,28 @@ h2 {
 
 @media (max-width: 680px) {
   body {
+    font-size: 16px;
+  }
+
+  body::before {
+    background-position: center top;
+    transform: scale(1.1);
+  }
+
+  body::after {
     background:
-      linear-gradient(180deg, rgb(247 245 239 / 0.98), rgb(247 245 239 / 0.9));
+      linear-gradient(
+        180deg,
+        rgb(247 245 239 / 0.94),
+        rgb(247 245 239 / 0.78)
+      ),
+      rgb(0 0 0 / 0.10);
   }
 
   .page {
-    padding-top: 32px;
+    width: min(100% - 22px, 880px);
+    padding: 32px 22px 28px;
+    border-radius: 0 0 22px 22px;
   }
 
   .profile {
@@ -199,9 +255,20 @@ h2 {
     background: var(--paper);
   }
 
+  body::before,
+  body::after {
+    display: none;
+  }
+
   .page {
     width: 100%;
+    min-height: auto;
     padding: 0;
+    background: var(--paper);
+    box-shadow: none;
+    border-radius: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .portrait {
